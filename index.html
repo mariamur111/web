@@ -1,211 +1,131 @@
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maria Mur</title>
     <style>
-        body { 
-            background: linear-gradient(to bottom, #E85614 2%, #ffffff 22%), linear-gradient(to top, #E85614 2%, #ffffff 22%); /* Gradiente arriba y abajo */
-            font-family: 'Times New Roman', serif;
+        body {
             margin: 0;
-            padding: 0;
-            text-align: center;
-            padding-bottom: 100px;
-            cursor: url('imagenes/bola.png'), auto;
-        }
-
-        .menu {
-            font-size: 14px;
-            margin-bottom: 20px;
-            margin-top: 15px;
             display: flex;
-            justify-content: flex-start;
-            padding: 0 20px; /* Alineación de menú al margen izquierdo */
-            position: relative;
-            z-index: 10;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        .menu a {
-            text-decoration: underline; 
-            color: black;
-            cursor: pointer;
-            padding: 10px; /* Separación entre "Projects" y "Contact" */
-            font-weight: normal; /* Sin negrita */
+        /*----------Parte izquierda estatica----------*/
+        .izquierda { 
+            min-width: 500px;
+            max-width: 500px; 
+            overflow: hidden; /* Sin scroll */
+            background: rgb(255, 77, 0);
         }
 
-        .menu a:hover {
-            text-decoration: underline;
+        /*css de los parrafos primero y separados*/
+        p{
+            margin: 10px 20px;
+            font-size: small;
         }
 
-        /* Posición de "Projects" encima de la tabla, alineado a la misma altura que "Contact", pero movido 80px más a la derecha */
-        .projects {
-            position: absolute;
-            top: -15px; /* Subido 30px más desde el valor anterior (era 15px, ahora es -15px) */
-            left: 390px; /* Moved 80px more to the right (anteriormente 310px) */
-            font-size: 14px;
-            font-weight: normal;
-            text-decoration: underline;
+        /*css de la clase que separa los tres parrafos y los tres links*/
+        .parrafos-horizontales {
+            display: flex;
+            justify-content: space-between; /* Distribuye el espacio entre elementos */
+            gap: 20px; /* Separación entre párrafos */
         }
 
-        /* Posición de "Contact", alineado con "Projects" */
-        .contact {
-            position: absolute;
-            top: -15px; /* Igual que "Projects" */
-            left: 70px; /* Posición original de "Contact", igual que antes */
-            font-size: 14px;
-            font-weight: normal;
-            text-decoration: underline;
-        }
-
-        /* Contenedor de la tabla */
+        /*css del contenedor(div) que contiene la tabla*/
         .table-container {
-            margin-top: 25px; /* Subir la tabla 25px */
-            text-align: center;
-            z-index: 20;
-            position: relative;
-            left: 500px; /* Ajuste de posición para mover la tabla 300px más a la derecha */
+            margin: 20px;
+            width: 100%;
         }
 
-        table {
-            width: 900px; /* Ancho de la tabla aumentado en 50px (ahora es 900px) */
-            border-collapse: collapse; /* Esto asegura que las líneas no se dividan */
-            margin-left: 0; /* No hay desplazamiento adicional */
-            border-spacing: 0; /* Elimina el espacio entre las celdas */
-            position: relative;
+        /*css de la tabla*/
+        table{
+            font-size: small;
+            border-collapse: collapse;
+            width: 90%;
         }
 
-        td, th {
-            padding: 5px 10px; /* Reducción de la separación entre líneas (menos padding) */
+        /*css de las filas de la tabla*/
+        td{
             border-bottom: 1px solid black;
-            width: 33.33%; /* Cada columna ocupa un tercio del ancho total (300px) */
-            text-align: center; /* Centra el texto de todas las celdas */
-            font-weight: normal; /* Elimina cualquier negrita */
         }
-
-        td a, th a {
-            display: block; /* Asegura que el texto no se amontone */
-            word-wrap: break-word; /* Asegura que el texto largo se ajuste correctamente */
-        }
-
-        .left-align { text-align: left; }
-        .center-align { 
-            text-align: center; 
-        }
-        .right-align { text-align: right; }
-
-        .table-container a {
+        
+        /*css de los links*/
+        a{
             color: black;
-            text-decoration: none;
+            margin: 20px 30px;
+            font-size: small;
         }
+        
 
-        .table-container a:hover {
-            text-decoration: underline;
+        /*------------Parte derecha dinamica-----------*/
+        .derecha {
+            width: 60%;
+            overflow-y: auto; /* Con scroll vertical */
+            background: #fff;
         }
-
-        /* Imagen mariamur.png anclada a la izquierda */
-        .imagen-fondo {
-            position: absolute;
-            top: 50px;
-            left: 0;
-            width: 27%;
-            height: auto;
-            z-index: 30;
+        .derecha p{
+            width: 1px;
         }
-
-        /* Posicionamiento de las imágenes yo1.jpg hasta yo5.jpg alrededor de mariamur.png */
-.yo-images {
-    position: absolute;
-    z-index: 25;
-}
-
-.yo-images img {
-    width: 50px; /* Tamaño reducido de las imágenes a la mitad */
-    height: auto;
-    position: absolute; /* Asegura que puedan moverse individualmente */
-}
-
-/* Posiciones aleatorias alrededor de la imagen mariamur.png */
-.yo2 { 
-    top: 120px; /* Bajado 80px desde 110px */
-    left: 20px; /* Movido 50px a la derecha desde 30px */
-    width: 70px !important; /* Aumentado el tamaño de yo4 */
-    height: auto !important;
-}
-.yo1 { top: 190px; left: 150px; } /* Bajado 200px */
-.yo3 { top: 30px; left: 230px; } /* Bajado 200px */
-.yo5 { top: 200px; 
-    left: 70px;
-    width: 40px !important; /* Aumentado el tamaño de yo4 */
-    height: auto !important; } /* Bajado 200px */
-.yo4 { 
-    top: 50px; /* Bajado 30px desde 20px */
-    left: 365px; /* Mantiene su posición horizontal */
-    width: 70px !important; /* Aumentado el tamaño de yo4 */
-    height: auto !important;
-}
-
     </style>
 </head>
 <body>
+    <div class="izquierda">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis quae nemo laboriosam maxime aperiam. Culpa dolorem quam dolores aut adipisci neque incidunt, autem repellendus ab corrupti earum error enim? Eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
-    <!-- Menú -->
-    <div class="menu">
-        <a href="#" class="contact">Contact</a> <!-- "Contact" al margen izquierdo -->
-        <a href="#" class="projects">Projects</a> <!-- "Projects" sobre la tabla, a la misma altura que "Contact" -->
+        <div class="parrafos-horizontales">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto eum, nemo quis voluptatibus nisi asperiores cum consectetur fuga obcaecati illum sequi labore.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum maiores iusto quaerat impedit itaque saepe. Quibusdam ratione exercitationem</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem aperiam quasi, eos laborum architecto voluptate ratione tenetur nemo omnis accusantium.</p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <td class="left-align">(1) Chromotype</td>
+                    <td class="center-align">2025</td>
+                    <td class="right-align">Experimental type/Editorial</td>
+                </tr>
+                <tr>
+                    <td class="left-align">(2) Suvenir</td>
+                    <td class="center-align">2023</td>
+                    <td class="right-align">Editorial/Creative direction</td>
+                </tr>
+                <tr>
+                    <td class="left-align">(3) Revel</td>
+                    <td class="center-align">2024</td>
+                    <td class="right-align">Art/Photography direction</td>
+                </tr>
+                <tr>
+                    <td class="left-align">(4) Memoria de un olvido</td>
+                    <td class="center-align">2025</td>
+                    <td class="right-align">Art direction/Editorial</td>
+                </tr>
+                <tr>
+                    <td class="left-align">(5) Mantón de baturra</td>
+                    <td class="center-align">2024</td>
+                    <td class="right-align">Illustration/New Media</td>
+                </tr>
+                <tr>
+                    <td class="left-align">(6) Yorokobu</td>
+                    <td class="center-align">2024</td>
+                    <td class="right-align">Illustration</td>
+                </tr>
+                <tr>
+                    <td class="left-align">(7) Terrabaixa</td>
+                    <td class="center-align">2022</td>
+                    <td class="right-align">Photography/Editorial</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="parrafos-horizontales">
+            <a href="https://www.instagram.com/_mariamur/">instagram</a>
+            <a href="https://www.linkedin.com/in/mariamur11/">linkedin</a>
+            <a href="mailto:mariamur.contacto@gmail.com">mail</a>
+        </div>
     </div>
-
-    <!-- Imagen mariamur.png anclada a la izquierda -->
-    <img src="imagenes/mariamur.png" alt="Imagen en el fondo" class="imagen-fondo">
-
-    <!-- Imágenes yo1.jpg hasta yo5.jpg alrededor de mariamur.png -->
-    <div class="yo-images">
-        <img src="imagenes/yo1.jpg" alt="yo1" class="yo1">
-        <img src="imagenes/yo2.jpg" alt="yo2" class="yo2">
-        <img src="imagenes/yo3.jpg" alt="yo3" class="yo3">
-        <img src="imagenes/yo4.jpg" alt="yo4" class="yo4">
-        <img src="imagenes/yo5.jpg" alt="yo5" class="yo5">
+    <div class="derecha">
+        <!-- Tu contenido desplazable aquí -->
+         
     </div>
-
-    <!-- Contenedor de la tabla siempre visible -->
-    <div class="table-container">
-        <table>
-            <tr>
-                <th class="left-align"><a href="./(1)chromotype.html">(1) Chromotype</a></th>
-                <th class="center-align">2025</th>
-                <th class="right-align">Experimental type/Editorial</th>
-            </tr>
-            <tr>
-                <td class="left-align"><a href="./(2)suvenir.html">(2) Suvenir</a></td>
-                <td class="center-align">2023</td>
-                <td class="right-align">Editorial/Creative direction</td>
-            </tr>
-            <tr>
-                <td class="left-align"><a href="./(3)revel.html">(3) Revel</a></td>
-                <td class="center-align">2024</td>
-                <td class="right-align">Art/Photography direction</td>
-            </tr>
-            <tr>
-                <td class="left-align"><a href="./(4)memoria.html">(4) Memoria de un olvido</a></td>
-                <td class="center-align">2025</td>
-                <td class="right-align">Art direction/Editorial</td>
-            </tr>
-            <tr>
-                <td class="left-align"><a href="./(5)manton.html">(5) Mantón de baturra</a></td>
-                <td class="center-align">2024</td>
-                <td class="right-align">Illustration/New Media</td>
-            </tr>
-            <tr>
-                <td class="left-align"><a href="./(6)yorokobu.html">(6) Yorokobu</a></td>
-                <td class="center-align">2024</td>
-                <td class="right-align">Illustration</td>
-            </tr>
-            <tr>
-                <td class="left-align"><a href="./terrabaixa.html">(7) Terrabaixa</a></td>
-                <td class="center-align">2022</td>
-                <td class="right-align">Photography/Editorial</td>
-            </tr>
-        </table>
-    </div>
-
 </body>
 </html>
