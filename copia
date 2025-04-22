@@ -1,0 +1,109 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Mur</title>
+    <style>
+        body { 
+            background: linear-gradient(to bottom, #E85614 2%, #ffffff 22%);
+            font-family: 'Times New Roman';
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Usar la imagen 'bola.png' como cursor en toda la página */
+        body {
+            cursor: url('imagenes/bola.png'), auto;
+        }
+
+        .menu {
+            font-family: 'Times New Roman', serif;
+            font-size: 14px;
+            margin-bottom: 20px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .menu a {
+            text-decoration: underline; 
+            color: black;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        .imagen-fondo {
+            position: absolute; 
+            top: 50px;
+            left: 50%; 
+            transform: translateX(-50%);
+            width: 30%; 
+            height: auto;
+            z-index: 1;
+        }
+
+        .imagen-aleatoria {
+            position: absolute;
+            width: 10%;
+            height: auto;
+            display: none;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <a href="javascript:void(0);" onclick="mostrarProyectos()">Projects</a>
+        <a href="./contacto.html">Contact</a>
+    </div>
+
+    <img src="imagenes/letrasfinales.png" alt="Imagen en el fondo" class="imagen-fondo">
+
+    <!-- Contenedor de imágenes -->
+    <div id="image-container"></div>
+
+    <script>
+        window.onload = function() {
+            var container = document.getElementById("image-container");
+            var totalImages = 50;
+
+            for (let i = 1; i <= totalImages; i++) {
+                let img = document.createElement("img");
+                img.src = "imagenes/imagen" + i + ".jpg";
+                img.classList.add("imagen-aleatoria");
+                container.appendChild(img);
+            }
+
+            function obtenerPosicionAleatoria() {
+                var x = Math.random() * window.innerWidth;
+                var y = Math.random() * (window.innerHeight / 2) + (window.innerHeight / 2); // Solo en la mitad inferior
+                return { x: x, y: y };
+            }
+
+            function mostrarImagenAleatoria() {
+                var imagenes = document.querySelectorAll('.imagen-aleatoria');
+                var imagen = imagenes[Math.floor(Math.random() * imagenes.length)];
+                var posicion = obtenerPosicionAleatoria();
+
+                imagen.style.left = posicion.x + 'px';
+                imagen.style.top = posicion.y + 'px';
+                imagen.style.display = 'block';
+
+                setTimeout(function() {
+                    imagen.style.display = 'none';
+                    mostrarImagenAleatoria();
+                }, 1000); // Menor duración en pantalla
+            }
+
+            setInterval(mostrarImagenAleatoria, 300); // Imágenes aparecen más rápido
+        };
+    </script>
+
+</body>
+</html>

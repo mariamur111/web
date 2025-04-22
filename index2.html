@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Mur</title>
+    <style>
+        body { 
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            overflow: hidden;
+        }
+
+        .left-section {
+            width: 33.33%;
+            background: url('imagenes/yo4.jpg') no-repeat center center;
+            background-size: 400%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+        }
+
+        .right-section {
+            margin-left: 33.33%;
+            width: 66.66%;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100vh;
+            position: relative;
+        }
+
+        .menu-bar {
+            background-color: rgb(255, 77, 0);
+            padding: 0px;
+            width: 100%;
+            color: white;
+            display: flex;
+            justify-content: flex-start;
+            position: absolute;
+            top: 0;
+        }
+
+        .menu-bar a {
+            text-decoration: underline;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            padding: 10px;
+            font-weight: normal;
+        }
+
+        .projects {
+            font-size: 14px;
+        }
+
+        .contact {
+            font-size: 14px;
+            margin-left: 20px;
+        }
+
+        .projects-container {
+            margin-top: 220px;
+        }
+
+        .table-container {
+            position: absolute;
+            top: 40px;
+            left: calc(50% + 100px);
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 675px;
+            z-index: 20;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            position: relative;
+        }
+
+        td, th {
+            padding: 5px 10px;
+            border-bottom: 1px solid black;
+            width: 33.33%;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        td a, th a {
+            display: block;
+            word-wrap: break-word;
+        }
+
+        .left-align { text-align: left; }
+        .center-align { text-align: center; }
+        .right-align { text-align: right; }
+
+        .table-container a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .table-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo del slider */
+        .slider {
+            margin-top: 220px; /* Subir el slider 30px */
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            justify-content: center;
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 700px;  /* Asegurando que todas las imágenes tengan el mismo tamaño */
+            object-fit: cover;  /* Mantener la proporción de la imagen sin distorsionarse */
+        }
+
+        /* Flechas de navegación más pequeñas */
+        .slider-arrow {
+            position: absolute;
+            top: 20px; /* Ajustar para que las flechas estén a 20px del margen superior */
+            font-size: 1.5rem; /* Tamaño reducido */
+            cursor: pointer;
+            z-index: 1;
+            background-color: transparent;
+            border: none;
+            color: black;
+            transition: background-color 0.3s;
+            padding: 5px;
+            transform: translateY(0); /* Asegurarse de que las flechas estén centradas verticalmente */
+        }
+
+        .slider-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-arrow.left {
+            left: 20px;
+        }
+
+        .slider-arrow.right {
+            right: 20px;
+        }
+
+        /* Franja azul debajo del slider */
+        .info-bar {
+            background-color: #395FA6; /* Azul */
+            padding: 10px 0; /* Hacer la franja más corta */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            font-family: Helvetica,;
+        }
+
+        .info-bar .column {
+            text-align: center;
+        }
+
+        .info-bar .column p {
+            margin: 0;
+            font-size: 8px;
+            line-height: 1.5;
+        }
+
+        /* Ajuste de las tres primeras columnas para que estén más cercanas */
+        .info-bar .column:nth-child(1),
+        .info-bar .column:nth-child(2),
+        .info-bar .column:nth-child(3) {
+            width: 31.33%; /* Ajustar para que las tres columnas tengan un ancho de 31.33% */
+        }
+
+        .info-bar .column:nth-child(4) {
+            width: 36%; /* La última columna ocupa el 36% del ancho */
+        }
+
+        /* Secciones ocultables */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-section"></div>
+
+    <div class="right-section">
+        <div class="menu-bar">
+            <a href="#" class="projects" onclick="showSection('projects-section')">Projects</a>
+            <a href="#" class="contact" onclick="showSection('contact-section')">Contact</a>
+        </div>
+
+        <!-- Sección de proyectos -->
+        <div id="projects-section" class="section active">
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th class="left-align"><a href="./(1)chromotype.html">(1) Chromotype</a></th>
+                        <th class="center-align">2025</th>
+                        <th class="right-align">Experimental type/Editorial</th>
+                    </tr>
+                    <tr>
+                        <td class="left-align"><a href="./(2)suvenir.html">(2) Suvenir</a></td>
+                        <td class="center-align">2023</td>
+                        <td class="right-align">Editorial/Creative direction</td>
+                    </tr>
+                    <tr>
+                        <td class="left-align"><a href="./(3)revel.html">(3) Revel</a></td>
+                        <td class="center-align">2024</td>
+                        <td class="right-align">Art/Photography direction</td>
+                    </tr>
+                    <tr>
+                        <td class="left-align"><a href="./(4)memoria.html">(4) Memoria de un olvido</a></td>
+                        <td class="center-align">2025</td>
+                        <td class="right-align">Art direction/Editorial</td>
+                    </tr>
+                    <tr>
+                        <td class="left-align"><a href="./(5)manton.html">(5) Mantón de baturra</a></td>
+                        <td class="center-align">2024</td>
+                        <td class="right-align">Illustration/New Media</td>
+                    </tr>
+                    <tr>
+                        <td class="left-align"><a href="./(6)yorokobu.html">(6) Yorokobu</a></td>
+                        <td class="center-align">2024</td>
+                        <td class="right-align">Illustration</td>
+                    </tr>
+                    <tr>
+                        <td class="left-align"><a href="./terrabaixa.html">(7) Terrabaixa</a></td>
+                        <td class="center-align">2022</td>
+                        <td class="right-align">Photography/Editorial</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="slider">
+                <button class="slider-arrow left"> <<< </button>
+                <div class="slider-container">
+                    <img src="imagenes/1.jpg" alt="Chromotype 1">
+                    <img src="imagenes/2.jpg" alt="Chromotype 2">
+                    <img src="imagenes/3.jpg" alt="Chromotype 3">
+                    <img src="imagenes/4.jpg" alt="Chromotype 4">
+                    <img src="imagenes/5.jpg" alt="Chromotype 5">
+                    <img src="imagenes/6.jpg" alt="Chromotype 6">
+                    <img src="imagenes/7.jpg" alt="Chromotype 7">
+                    <img src="imagenes/8.jpg" alt="Chromotype 8">
+                    <img src="imagenes/9.jpg" alt="Chromotype 9">
+                    <img src="imagenes/10.jpg" alt="Chromotype 10">
+                    <img src="imagenes/11.jpg" alt="Chromotype 11">
+                    <img src="imagenes/12.jpg" alt="Chromotype 12">
+                    <img src="imagenes/13.jpg" alt="Chromotype 13">
+                    <img src="imagenes/14.jpg" alt="Chromotype 14">
+                </div>
+                <button class="slider-arrow right"> >>> </button>
+            </div>
+
+            <!-- Franja azul debajo del slider -->
+            <div class="info-bar">
+                <div class="column">
+                    <p>Illustration,<br>New Media</p>
+                </div>
+                <div class="column">
+                    <p>2024</p>
+                </div>
+                <div class="column">
+                    <p>Mantón de Baturra</p>
+                </div>
+                <div class="column">
+                    <p>This project reimagines the traditional artisanal process of making the Aragonese mantón de baturra. Through 3D printing as a new method of digital production, I propose its creation starting from the graphic designer’s smallest unit: the pixel. The final result is a mantón de baturra inspired by the traditional legends of San Miguel from my grandparents’ village, Torrecilla de Alcañiz. The creative process involves illustration and the 3D printing of 36 independent PLA sheets, which are hand-joined using heat.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de contacto -->
+        <div id="contact-section" class="section">
+            <div style="margin-top: 100px; padding: 20px;">
+                <h2>Contact</h2>
+                <p>Puedes escribirme a: <a href="mailto:maria@example.com">maria@example.com</a></p>
+                <p>Instagram: <a href="https://instagram.com/maria" target="_blank">@maria</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
