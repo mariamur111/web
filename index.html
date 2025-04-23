@@ -12,7 +12,7 @@
         /*----------Parte izquierda estatica----------*/
         .izquierda { 
             min-width: 500px;
-            max-width: 500px; 
+            width: 40lvw;
             overflow: hidden; /* Sin scroll */
             background: rgb(255, 77, 0);
         }
@@ -58,7 +58,8 @@
 
         /*------------Parte derecha dinamica-----------*/
         .derecha {
-            width: 60%;
+            width: auto;
+            min-width: 350px;
             overflow-y: auto; /* Con scroll vertical */
             background: #fff;
         }
@@ -67,7 +68,6 @@
         .slider {
             display: flex;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
             height: 300px;
             cursor: grab; /* Cursor que indica que se puede arrastrar */
             user-select: none; /* Evita selección de texto al arrastrar */
@@ -76,7 +76,6 @@
         /*css del contenedor de cada imagen, que se mueve dentro del slider*/
         .slide {
             flex: 0 0 50%;
-            scroll-snap-align: start;
             display: flex;
             flex-direction: column;
         }
@@ -104,6 +103,27 @@
             text-decoration: underline;
             font-weight: normal;
         }
+
+        @media (max-width: 900px) {
+            .slide {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;  /* Apila verticalmente */
+                overflow-y: auto; /* Permite scroll vertical general */
+                height: auto; /* Altura según contenido */
+            }
+            
+            .izquierda, .derecha {
+                width: 100%;  /* Ocupan todo el ancho */
+                min-width: 100%;  /* Anula el mínimo anterior */
+                min-height: 100vh;/* Ocupa al menos una pantalla */
+                overflow: visible; /* Scroll manejado por el body */
+            }
+        }       
         
     </style>
 </head>
