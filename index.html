@@ -1,308 +1,334 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <style>
-        body {
-            margin: 0;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
+      body {
+        margin: 0;
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
 
-        /*----------Parte izquierda estatica----------*/
-        .izquierda { 
-            min-width: 500px;
-            width: 40lvw;
-            overflow: hidden; /* Sin scroll */
-            background: rgb(255, 77, 0);
-        }
+      /*----------Parte izquierda estatica----------*/
+      .izquierda {
+        min-width: 500px;
+        width: 40lvw;
+        overflow: hidden; /* Sin scroll */
+        background: rgb(255, 77, 0);
+      }
 
-        /*css de los parrafos primero y separados*/
-        p{
-            margin: 10px 20px;
-            font-size: small;
-        }
+      /*css de los parrafos primero y separados*/
+      p {
+        margin: 10px 20px;
+        font-size: small;
+      }
 
-        /*css de la clase que separa los tres parrafos y los tres links*/
-        .parrafos-horizontales {
-            display: flex;
-            justify-content: space-between; /* Distribuye el espacio entre elementos */
-            gap: 20px; /* Separación entre párrafos */
-        }
+      /*css de la clase que separa los tres parrafos y los tres links*/
+      .parrafos-horizontales {
+        display: flex;
+        justify-content: space-between; /* Distribuye el espacio entre elementos */
+        gap: 20px; /* Separación entre párrafos */
+      }
 
-        /*css del contenedor(div) que contiene la tabla*/
-        .table-container {
-            margin: 20px;
-            width: 100%;
-        }
+      /*css del contenedor(div) que contiene la tabla*/
+      .table-container {
+        margin: 20px;
+        width: 100%;
+      }
 
-        /*css de la tabla*/
-        table{
-            font-size: small;
-            border-collapse: collapse;
-            width: 90%;
-        }
+      /*css de la tabla*/
+      table {
+        font-size: small;
+        border-collapse: collapse;
+        width: 90%;
+      }
 
-        /*css de las filas de la tabla*/
-        td{
-            border-bottom: 1px solid black;
-        }
-        
-        /*css de los links*/
-        a{
-            color: black;
-            margin: 20px 30px;
-            font-size: small;
-        }
-        
+      /*css de las filas de la tabla*/
+      td {
+        border-bottom: 1px solid black;
+      }
 
-        /*------------Parte derecha dinamica-----------*/
-        .derecha {
-            width: auto;
-            min-width: 350px;
-            overflow-y: auto; /* Con scroll vertical */
-            background: #fff;
-        }
+      /*css de los links*/
+      a {
+        color: black;
+        margin: 20px 30px;
+        font-size: small;
+      }
 
-        /*css del contenedor general del sliderde cada proyecto*/
-        .slider {
-            display: flex;
-            overflow-x: auto;
-            height: 300px;
-            cursor: grab; /* Cursor que indica que se puede arrastrar */
-            user-select: none; /* Evita selección de texto al arrastrar */
-        }
+      /*------------Parte derecha dinamica-----------*/
+      .derecha {
+        width: auto;
+        min-width: 350px;
+        overflow-y: auto; /* Con scroll vertical */
+        background: #fff;
+        font-family: Helvetica, Arial, sans-serif;
+      }
 
-        /*css del contenedor de cada imagen, que se mueve dentro del slider*/
+      /*css del contenedor general del sliderde cada proyecto*/
+      .slider {
+        display: flex;
+        overflow-x: auto;
+        height: 300px;
+        cursor: grab; /* Cursor que indica que se puede arrastrar */
+        user-select: none; /* Evita selección de texto al arrastrar */
+      }
+
+      /*css del contenedor de cada imagen, que se mueve dentro del slider*/
+      .slide {
+        flex: 0 0 50%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .slider:active {
+        cursor: grabbing; /* Cambia el cursor cuando se está arrastrando */
+      }
+
+      /*css de las imagenes*/
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        pointer-events: none; /* Mejora el rendimiento del arrastre */
+      }
+
+      /* Ocultar barra de scroll */
+      .slider::-webkit-scrollbar {
+        display: none;
+      }
+
+      /*css del titulo de los proyectos*/
+      h3 {
+        margin: 0 20px;
+        text-decoration: underline;
+        font-weight: normal;
+      }
+
+      @media (max-width: 900px) {
         .slide {
-            flex: 0 0 50%;
-            display: flex;
-            flex-direction: column;
+          flex: 0 0 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column; /* Apila verticalmente */
+          overflow-y: auto; /* Permite scroll vertical general */
+          height: auto; /* Altura según contenido */
         }
 
-        .slider:active {
-            cursor: grabbing; /* Cambia el cursor cuando se está arrastrando */
+        .izquierda,
+        .derecha {
+          width: 100%; /* Ocupan todo el ancho */
+          min-width: 100%; /* Anula el mínimo anterior */
+          min-height: 100vh; /* Ocupa al menos una pantalla */
+          overflow: visible; /* Scroll manejado por el body */
         }
-
-        /*css de las imagenes*/
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            pointer-events: none; /* Mejora el rendimiento del arrastre */
-        }
-
-            /* Ocultar barra de scroll */
-        .slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        /*css del titulo de los proyectos*/
-        h3{
-            margin: 0 20px;
-            text-decoration: underline;
-            font-weight: normal;
-        }
-
-        @media (max-width: 900px) {
-            .slide {
-                flex: 0 0 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;  /* Apila verticalmente */
-                overflow-y: auto; /* Permite scroll vertical general */
-                height: auto; /* Altura según contenido */
-            }
-            
-            .izquierda, .derecha {
-                width: 100%;  /* Ocupan todo el ancho */
-                min-width: 100%;  /* Anula el mínimo anterior */
-                min-height: 100vh;/* Ocupa al menos una pantalla */
-                overflow: visible; /* Scroll manejado por el body */
-            }
-        }       
-        
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!--/*----------Parte izquierda estatica----------*/-->
     <div class="izquierda">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis quae nemo laboriosam maxime aperiam. Culpa dolorem quam dolores aut adipisci neque incidunt, autem repellendus ab corrupti earum error enim? Eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
+        quae nemo laboriosam maxime aperiam. Culpa dolorem quam dolores aut
+        adipisci neque incidunt, autem repellendus ab corrupti earum error enim?
+        Eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
 
-        <div class="parrafos-horizontales">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto eum, nemo quis voluptatibus nisi asperiores cum consectetur fuga obcaecati illum sequi labore.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum maiores iusto quaerat impedit itaque saepe. Quibusdam ratione exercitationem</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem aperiam quasi, eos laborum architecto voluptate ratione tenetur nemo omnis accusantium.</p>
-        </div>
+      <div class="parrafos-horizontales">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto
+          eum, nemo quis voluptatibus nisi asperiores cum consectetur fuga
+          obcaecati illum sequi labore.
+        </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum
+          maiores iusto quaerat impedit itaque saepe. Quibusdam ratione
+          exercitationem
+        </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem
+          aperiam quasi, eos laborum architecto voluptate ratione tenetur nemo
+          omnis accusantium.
+        </p>
+      </div>
 
-        <div class="table-container">
-            <table>
-                <tr>
-                    <td class="left-align">(1) Chromotype</td>
-                    <td class="center-align">2025</td>
-                    <td class="right-align">Experimental type/Editorial</td>
-                </tr>
-                <tr>
-                    <td class="left-align">(2) Suvenir</td>
-                    <td class="center-align">2023</td>
-                    <td class="right-align">Editorial/Creative direction</td>
-                </tr>
-                <tr>
-                    <td class="left-align">(3) Revel</td>
-                    <td class="center-align">2024</td>
-                    <td class="right-align">Art/Photography direction</td>
-                </tr>
-                <tr>
-                    <td class="left-align">(4) Memoria de un olvido</td>
-                    <td class="center-align">2025</td>
-                    <td class="right-align">Art direction/Editorial</td>
-                </tr>
-                <tr>
-                    <td class="left-align">(5) Mantón de baturra</td>
-                    <td class="center-align">2024</td>
-                    <td class="right-align">Illustration/New Media</td>
-                </tr>
-                <tr>
-                    <td class="left-align">(6) Yorokobu</td>
-                    <td class="center-align">2024</td>
-                    <td class="right-align">Illustration</td>
-                </tr>
-                <tr>
-                    <td class="left-align">(7) Terrabaixa</td>
-                    <td class="center-align">2022</td>
-                    <td class="right-align">Photography/Editorial</td>
-                </tr>
-            </table>
-        </div>
+      <div class="table-container">
+        <table>
+          <tr>
+            <td class="left-align">(1) Chromotype</td>
+            <td class="center-align">2025</td>
+            <td class="right-align">Experimental type/Editorial</td>
+          </tr>
+          <tr>
+            <td class="left-align">(2) Suvenir</td>
+            <td class="center-align">2023</td>
+            <td class="right-align">Editorial/Creative direction</td>
+          </tr>
+          <tr>
+            <td class="left-align">(3) Revel</td>
+            <td class="center-align">2024</td>
+            <td class="right-align">Art/Photography direction</td>
+          </tr>
+          <tr>
+            <td class="left-align">(4) Memoria de un olvido</td>
+            <td class="center-align">2025</td>
+            <td class="right-align">Art direction/Editorial</td>
+          </tr>
+          <tr>
+            <td class="left-align">(5) Mantón de baturra</td>
+            <td class="center-align">2024</td>
+            <td class="right-align">Illustration/New Media</td>
+          </tr>
+          <tr>
+            <td class="left-align">(6) Yorokobu</td>
+            <td class="center-align">2024</td>
+            <td class="right-align">Illustration</td>
+          </tr>
+          <tr>
+            <td class="left-align">(7) Terrabaixa</td>
+            <td class="center-align">2022</td>
+            <td class="right-align">Photography/Editorial</td>
+          </tr>
+        </table>
+      </div>
 
-        <div class="parrafos-horizontales">
-            <a href="https://www.instagram.com/_mariamur/">instagram</a>
-            <a href="https://www.linkedin.com/in/mariamur11/">linkedin</a>
-            <a href="mailto:mariamur.contacto@gmail.com">mail</a>
-        </div>
+      <div class="parrafos-horizontales">
+        <a href="https://www.instagram.com/_mariamur/">instagram</a>
+        <a href="https://www.linkedin.com/in/mariamur11/">linkedin</a>
+        <a href="mailto:mariamur.contacto@gmail.com">mail</a>
+      </div>
     </div>
-
-
 
     <!--/*------------Parte derecha dinamica-----------*/-->
     <div class="derecha">
-
-        <!--Chromotype-->
-        <div>
-            <div class="slider">
-                <div class="slide">
-                <img src="imagenes/1.jpg" alt="Foto 1">
-                </div>
-                <div class="slide">
-                <img src="imagenes/2.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                <img src="imagenes/3.jpg" alt="Foto 3">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/4.jpg" alt="Foto 1">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/5.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/6.jpg" alt="Foto 3">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/7.jpg" alt="Foto 1">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/8.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/9.jpg" alt="Foto 3">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/10.jpg" alt="Foto 1">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/11.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/12.jpg" alt="Foto 3">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/13.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/14.jpg" alt="Foto 3">
-                </div>
-            </div>
-
-            <div class="parrafos-horizontales">
-                <p>Chromotype</p>
-                <p>2025</p>
-                <p>Experimental type/Editorial</p>
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolor voluptatum aliquam mollitia laudantium nisi modi eius, incidunt, eaque odio esse, fuga asperiores molestias facere provident quas hic ex est.</p>
+      <!--Chromotype-->
+      <div>
+        <div class="slider">
+          <div class="slide">
+            <img src="imagenes/1.jpg" alt="Foto 1" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/2.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/3.jpg" alt="Foto 3" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/4.jpg" alt="Foto 1" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/5.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/6.jpg" alt="Foto 3" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/7.jpg" alt="Foto 1" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/8.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/9.jpg" alt="Foto 3" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/10.jpg" alt="Foto 1" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/11.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/12.jpg" alt="Foto 3" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/13.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/14.jpg" alt="Foto 3" />
+          </div>
         </div>
 
-        <!--Chromotype-->
-        <div>
-            <div class="slider">
-                <div class="slide">
-                <img src="imagenes/imagen1.jpg" alt="Foto 1">
-                </div>
-                <div class="slide">
-                <img src="imagenes/imagen2.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                <img src="imagenes/imagen3.jpg" alt="Foto 3">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen4.jpg" alt="Foto 1">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen5.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen6.jpg" alt="Foto 3">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen7.jpg" alt="Foto 1">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen8.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen9.jpg" alt="Foto 3">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen10.jpg" alt="Foto 1">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen11.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen12.jpg" alt="Foto 3">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen13.jpg" alt="Foto 2">
-                </div>
-                <div class="slide">
-                    <img src="imagenes/imagen14.jpg" alt="Foto 3">
-                </div>
-            </div>
-
-            <div class="parrafos-horizontales">
-                <p>Chromotype</p>
-                <p>2025</p>
-                <p>Experimental type/Editorial</p>
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolor voluptatum aliquam mollitia laudantium nisi modi eius, incidunt, eaque odio esse, fuga asperiores molestias facere provident quas hic ex est.</p>
+        <div class="parrafos-horizontales">
+          <p>Chromotype</p>
+          <p>2025</p>
+          <p>Experimental type/Editorial</p>
         </div>
+        <p>
+          Chromotype is an experimental typeface that originates from the
+          invisible structure found in the petal of a flower. Its chromo (color)
+          comes from the visible pigments (chromoplasts), and its type (shape)
+          is generated from the nectar guides used to direct pollinators. This
+          is what creates a typeface designed to experiment with volumes,
+          densities, and layers within a composition. It extends beyond the
+          character to a more complex system that can easily be used for
+          illustrative purposes.
+        </p>
+      </div>
+
+      <!--Chromotype-->
+      <div>
+        <div class="slider">
+          <div class="slide">
+            <img src="imagenes/imagen1.jpg" alt="Foto 1" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen2.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen3.jpg" alt="Foto 3" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen4.jpg" alt="Foto 1" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen5.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen6.jpg" alt="Foto 3" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen7.jpg" alt="Foto 1" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen8.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen9.jpg" alt="Foto 3" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen10.jpg" alt="Foto 1" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen11.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen12.jpg" alt="Foto 3" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen13.jpg" alt="Foto 2" />
+          </div>
+          <div class="slide">
+            <img src="imagenes/imagen14.jpg" alt="Foto 3" />
+          </div>
+        </div>
+
+        <div class="parrafos-horizontales">
+          <p>Chromotype</p>
+          <p>2025</p>
+          <p>Experimental type/Editorial</p>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+          dolor voluptatum aliquam mollitia laudantium nisi modi eius, incidunt,
+          eaque odio esse, fuga asperiores molestias facere provident quas hic
+          ex est.
+        </p>
+      </div>
     </div>
 
-
-
     <script src="slider.js"></script>
-</body>
+  </body>
 </html>
