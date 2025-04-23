@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if(!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Ajusta la velocidad de arrastre
+            const walk = (x - startX) ; // Ajusta la velocidad de arrastre
             slider.scrollLeft = scrollLeft - walk;
         });
         
