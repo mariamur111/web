@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>María Mur</title>
     <style>
       body {
         margin: 0;
@@ -19,7 +22,8 @@
 
       /*css de los parrafos primero y separados*/
       p {
-        margin: 10px 20px;
+        padding: 2vh 3vh;
+        margin: 0;
         font-size: small;
       }
 
@@ -27,7 +31,6 @@
       .parrafos-horizontales {
         display: flex;
         justify-content: space-between; /* Distribuye el espacio entre elementos */
-        gap: 20px; /* Separación entre párrafos */
       }
 
       /*css del contenedor(div) que contiene la tabla*/
@@ -71,6 +74,17 @@
         height: 300px;
         cursor: grab; /* Cursor que indica que se puede arrastrar */
         user-select: none; /* Evita selección de texto al arrastrar */
+        will-change: transform; /* Optimiza renderizado */
+        contain: strict; /* Aísla el rendering */
+      }
+
+      .slider:active {
+        cursor: grabbing; /* Cambia el cursor cuando se está arrastrando */
+      }
+
+      /* Ocultar barra de scroll */
+      .slider::-webkit-scrollbar {
+        display: none;
       }
 
       /*css del contenedor de cada imagen, que se mueve dentro del slider*/
@@ -78,10 +92,7 @@
         flex: 0 0 50%;
         display: flex;
         flex-direction: column;
-      }
-
-      .slider:active {
-        cursor: grabbing; /* Cambia el cursor cuando se está arrastrando */
+        backface-visibility: hidden; /* Mejora performance */
       }
 
       /*css de las imagenes*/
@@ -90,11 +101,6 @@
         height: 100%;
         object-fit: contain;
         pointer-events: none; /* Mejora el rendimiento del arrastre */
-      }
-
-      /* Ocultar barra de scroll */
-      .slider::-webkit-scrollbar {
-        display: none;
       }
 
       /*css del titulo de los proyectos*/
@@ -110,18 +116,20 @@
         }
       }
 
-      @media (max-width: 768px) {
+      @media screen and (max-width: 768px), (hover: none) and (pointer: coarse) {
         body {
-          flex-direction: column; /* Apila verticalmente */
+          display: block;
+          /*flex-direction: column;*/
+          margin: 0;
           overflow-y: auto; /* Permite scroll vertical general */
-          height: auto; /* Altura según contenido */
+          height: auto;
         }
 
         .izquierda,
         .derecha {
           width: 100%; /* Ocupan todo el ancho */
           min-width: 100%; /* Anula el mínimo anterior */
-          min-height: 100vh; /* Ocupa al menos una pantalla */
+          min-height: 100%/*dvh*/; /* Ocupa al menos una pantalla */
           overflow: visible; /* Scroll manejado por el body */
         }
       }
@@ -208,46 +216,46 @@
       <div>
         <div class="slider">
           <div class="slide">
-            <img src="imagenes/1.jpg" alt="Foto 1" />
+            <img src="imagenes/1.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/2.jpg" alt="Foto 2" />
+            <img src="imagenes/2.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/3.jpg" alt="Foto 3" />
+            <img src="imagenes/3.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/4.jpg" alt="Foto 1" />
+            <img src="imagenes/4.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/5.jpg" alt="Foto 2" />
+            <img src="imagenes/5.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/6.jpg" alt="Foto 3" />
+            <img src="imagenes/6.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/7.jpg" alt="Foto 1" />
+            <img src="imagenes/7.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/8.jpg" alt="Foto 2" />
+            <img src="imagenes/8.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/9.jpg" alt="Foto 3" />
+            <img src="imagenes/9.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/10.jpg" alt="Foto 1" />
+            <img src="imagenes/10.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/11.jpg" alt="Foto 2" />
+            <img src="imagenes/11.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/12.jpg" alt="Foto 3" />
+            <img src="imagenes/12.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/13.jpg" alt="Foto 2" />
+            <img src="imagenes/13.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/14.jpg" alt="Foto 3" />
+            <img src="imagenes/14.jpg" alt="Chromotype foto" loading="lazy"/>
           </div>
         </div>
 
@@ -268,50 +276,50 @@
         </p>
       </div>
 
-      <!--Chromotype-->
+      <!--Nombre del proyecto-->
       <div>
         <div class="slider">
           <div class="slide">
-            <img src="imagenes/imagen1.jpg" alt="Foto 1" />
+            <img src="imagenes/imagen1.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen2.jpg" alt="Foto 2" />
+            <img src="imagenes/imagen2.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen3.jpg" alt="Foto 3" />
+            <img src="imagenes/imagen3.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen4.jpg" alt="Foto 1" />
+            <img src="imagenes/imagen4.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen5.jpg" alt="Foto 2" />
+            <img src="imagenes/imagen5.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen6.jpg" alt="Foto 3" />
+            <img src="imagenes/imagen6.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen7.jpg" alt="Foto 1" />
+            <img src="imagenes/imagen7.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen8.jpg" alt="Foto 2" />
+            <img src="imagenes/imagen8.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen9.jpg" alt="Foto 3" />
+            <img src="imagenes/imagen9.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen10.jpg" alt="Foto 1" />
+            <img src="imagenes/imagen10.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen11.jpg" alt="Foto 2" />
+            <img src="imagenes/imagen11.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen12.jpg" alt="Foto 3" />
+            <img src="imagenes/imagen12.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen13.jpg" alt="Foto 2" />
+            <img src="imagenes/imagen13.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
           <div class="slide">
-            <img src="imagenes/imagen14.jpg" alt="Foto 3" />
+            <img src="imagenes/imagen14.jpg" alt="descripcion de las fotos" loading="lazy"/>
           </div>
         </div>
 
