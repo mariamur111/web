@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"
+    />
     <title>María Mur</title>
     <style>
       body {
@@ -14,10 +17,30 @@
 
       /*----------Parte izquierda estatica----------*/
       .izquierda {
+        position: relative;
         min-width: 500px;
-        width: 50vw;
+        width: 50vmax;
         overflow: hidden; /* Sin scroll */
         background: rgb(255, 77, 0);
+      }
+
+      h1 {
+        text-align: center;
+        padding: 4vh 3vh;
+        margin: 0;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 4vh;
+        z-index: 0;
+      }
+
+      .imagen-encima {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        z-index: 1;
       }
 
       /*css de los parrafos primero y separados*/
@@ -108,6 +131,7 @@
         margin: 0 20px;
         text-decoration: underline;
         font-weight: normal;
+        font-size: small;
       }
 
       @media (max-width: 900px) {
@@ -116,7 +140,8 @@
         }
       }
 
-      @media screen and (max-width: 768px), (hover: none) and (pointer: coarse) {
+      @media screen and (max-width: 768px),
+        (hover: none) and (pointer: coarse) {
         body {
           display: block;
           /*flex-direction: column;*/
@@ -129,40 +154,52 @@
         .derecha {
           width: 100%; /* Ocupan todo el ancho */
           min-width: 100%; /* Anula el mínimo anterior */
-          min-height: 100%/*dvh*/; /* Ocupa al menos una pantalla */
+          min-height: 100% /*dvh*/; /* Ocupa al menos una pantalla */
           overflow: visible; /* Scroll manejado por el body */
         }
       }
     </style>
   </head>
   <body>
-    <!--/*----------Parte izquierda estatica----------*/-->
+    <!--
+    
+    /*----------Parte izquierda estatica----------*/-->
     <div class="izquierda">
-      <p>
-        Maria Mur is a young Graphic Designer currently based in Bilbao, Spain. She enjoys researching new media ways of designing and loves taking projects into a physical process, which is why she often works with unconventional graphic tools. Maria has a deep interest in culture and traditions, and in her free time, she enjoys exploring these themes as the foundation of her personal projects. With a passion for storytelling through visual language, Maria seeks to blend traditional craftsmanship with contemporary design. Her work reflects a balance between innovation and heritage, always with a hands-on approach. Open to collaboration and new challenges, she aims to grow as a designer and as a young individual in the visual industry. 
+      <h1>
+        Maria Mur is a young Graphic Designer currently based in Bilbao, Spain.
+        Her work reflects a balance between innovation and heritage with a
+        hands-on approach.
+      </h1>
+
+      <img
+        src="./imagenes/mapa hojas vertical 3.png"
+        class="imagen-encima"
+        alt=""
+      />
 
       <div class="parrafos-horizontales">
         <p>
-          Experience <br> <br>
-          Freelance graphic designer (2019-Act) <br>
-          Graphic Designer and Art Director at Suvenir Bilbau (2022-2024) <br>
-          Graphic Design Intern at Happyending Studio (2024)<br>
+          Experience <br />
+          <br />
+          Freelance graphic designer (2019-Act) <br />
+          Graphic Designer and Art Director at Suvenir Bilbau (2022-2024) <br />
+          Graphic Design Intern at Happyending Studio (2024)<br />
         </p>
         <p>
-         Education <br><br>
-         International Beccalaureate (2019-2020)<br>
-         Graphic Design Degree at IED Kunsthal (2021-2025)*<br>
-        </p>
-        <p>
-         Others<br><br>
-         Young Talent Scholarship (IED)* <br>
-         Stand Design at Milano Design Week (IED)<br>
-         Speaker (Baskerville Design Festival)<br>
-         Mention (Revista Gráffica)<br>
-         Illustrator (Yorokobu)<br>
-         Illustrator (SerifaLaris Festival)<br>
+          Education <br /><br />
+          International Beccalaureate (2019-2020)<br />
+          Graphic Design Degree at IED Kunsthal (2021-2025)*<br />
         </p>
       </div>
+      <p>
+        Others<br /><br />
+        Young Talent Scholarship (IED)* <br />
+        Stand Design at Milano Design Week (IED)<br />
+        Speaker (Baskerville Design Festival)<br />
+        Mention (Revista Gráffica)<br />
+        Illustrator (Yorokobu)<br />
+        Illustrator (SerifaLaris Festival)<br />
+      </p>
 
       <div class="table-container">
         <table>
@@ -217,53 +254,53 @@
       <div>
         <div class="slider">
           <div class="slide">
-            <img src="imagenes/1.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/1.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/2.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/2.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/3.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/3.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/4.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/4.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/5.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/5.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/6.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/6.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/7.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/7.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/8.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/8.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/9.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/9.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/10.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/10.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/11.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/11.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/12.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/12.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/13.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/13.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
           <div class="slide">
-            <img src="imagenes/14.jpg" alt="Chromotype foto" loading="lazy"/>
+            <img src="imagenes/14.jpg" alt="Chromotype foto" loading="lazy" />
           </div>
         </div>
 
         <div class="parrafos-horizontales">
-          <p>Chromotype</p>
-          <p>2025</p>
-          <p>Experimental type/Editorial</p>
+          <h3>(1) Chromotype</h3>
+          <h3>2025</h3>
+          <h3>Experimental type/Editorial</h3>
         </div>
         <p>
           Chromotype is an experimental typeface that originates from the
@@ -281,46 +318,102 @@
       <div>
         <div class="slider">
           <div class="slide">
-            <img src="imagenes/imagen1.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen1.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen2.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen2.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen3.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen3.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen4.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen4.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen5.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen5.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen6.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen6.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen7.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen7.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen8.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen8.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen9.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen9.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen10.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen10.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen11.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen11.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen12.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen12.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen13.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen13.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
           <div class="slide">
-            <img src="imagenes/imagen14.jpg" alt="descripcion de las fotos" loading="lazy"/>
+            <img
+              src="imagenes/imagen14.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
           </div>
         </div>
 
@@ -330,10 +423,11 @@
           <p>Experimental type/Editorial</p>
         </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-          dolor voluptatum aliquam mollitia laudantium nisi modi eius, incidunt,
-          eaque odio esse, fuga asperiores molestias facere provident quas hic
-          ex est.
+          Suvenir is a curated cultural magazine by Julia González Saiz and
+          Maria Mur. Its purpose is to bring new Bilbao artists to the spotlight
+          and give them a space to share thoughts and ideas freely.As curators
+          we interview, write, edit and design the issue to show to the young
+          public of the city, invigorating creation in Bilbao.
         </p>
       </div>
     </div>
