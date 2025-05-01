@@ -22,15 +22,7 @@
         width: 50vmax;
         overflow: hidden; /* Sin scroll */
         background: rgb(255, 77, 0);
-      }
-
-      h1 {
-        text-align: center;
-        padding: 4vh 3vh;
-        margin: 0;
-        font-family: Helvetica, Arial, sans-serif;
-        line-height: 4vh;
-        z-index: 0;
+        z-index: 1;
       }
 
       .imagen-encima {
@@ -40,29 +32,44 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        z-index: 1;
+        z-index: 0;
       }
 
-      /*css de los parrafos primero y separados*/
-      p {
-        padding: 2vh 3vh;
+      h1 {
+        position: relative;
+        text-align: center;
+        padding: 4vh 3vh;
         margin: 0;
-        font-size: small;
+        font-size: 3.5vh;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 35px;
+        z-index: -1;
       }
 
-      /*css de la clase que separa los tres parrafos y los tres links*/
+      h3 {
+        padding: 1vh 20px;
+        margin: 0;
+        text-decoration: underline;
+        font-weight: normal;
+        font-size: 2vh;
+      }
+
+      p {
+        padding: 1vh 3vh;
+        margin: 0;
+        font-size: 2vh;
+      }
+
       .parrafos-horizontales {
         display: flex;
-        justify-content: space-between; /* Distribuye el espacio entre elementos */
+        justify-content: space-between;
       }
 
-      /*css del contenedor(div) que contiene la tabla*/
       .table-container {
         margin: 20px;
         width: 100%;
       }
 
-      /*css de la tabla*/
       table {
         font-size: small;
         border-collapse: collapse;
@@ -77,7 +84,7 @@
       /*css de los links*/
       a {
         color: black;
-        margin: 20px 30px;
+        margin: 2vh 30px;
         font-size: small;
       }
 
@@ -97,8 +104,8 @@
         height: 300px;
         cursor: grab; /* Cursor que indica que se puede arrastrar */
         user-select: none; /* Evita selección de texto al arrastrar */
-        will-change: transform; /* Optimiza renderizado */
-        contain: strict; /* Aísla el rendering */
+        will-change: transform;
+        contain: strict;
       }
 
       .slider:active {
@@ -115,7 +122,7 @@
         flex: 0 0 50%;
         display: flex;
         flex-direction: column;
-        backface-visibility: hidden; /* Mejora performance */
+        backface-visibility: hidden;
       }
 
       /*css de las imagenes*/
@@ -123,15 +130,7 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        pointer-events: none; /* Mejora el rendimiento del arrastre */
-      }
-
-      /*css del titulo de los proyectos*/
-      h3 {
-        margin: 0 20px;
-        text-decoration: underline;
-        font-weight: normal;
-        font-size: small;
+        pointer-events: none;
       }
 
       @media (max-width: 900px) {
@@ -152,9 +151,9 @@
 
         .izquierda,
         .derecha {
-          width: 100%; /* Ocupan todo el ancho */
-          min-width: 100%; /* Anula el mínimo anterior */
-          min-height: 100% /*dvh*/; /* Ocupa al menos una pantalla */
+          width: 100%;
+          min-width: 100%;
+          min-height: 100dvh; /* Ocupa al menos una pantalla */
           overflow: visible; /* Scroll manejado por el body */
         }
       }
@@ -178,28 +177,34 @@
       />
 
       <div class="parrafos-horizontales">
-        <p>
-          Experience <br />
-          <br />
-          Freelance graphic designer (2019-Act) <br />
-          Graphic Designer and Art Director at Suvenir Bilbau (2022-2024) <br />
-          Graphic Design Intern at Happyending Studio (2024)<br />
-        </p>
-        <p>
-          Education <br /><br />
-          International Beccalaureate (2019-2020)<br />
-          Graphic Design Degree at IED Kunsthal (2021-2025)*<br />
-        </p>
+        <div>
+          <h3>Experience</h3>
+          <p>
+            Freelance graphic designer (2019-Act) <br />
+            Graphic Designer and Art Director at Suvenir Bilbau (2022-2024)
+            <br />
+            Graphic Design Intern at Happyending Studio (2024)<br />
+          </p>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <p>
+            International Beccalaureate (2019-2020)<br />
+            Graphic Design Degree at IED Kunsthal (2021-2025)*<br />
+          </p>
+        </div>
       </div>
-      <p>
-        Others<br /><br />
+      <div>
+        <h3>Others</h3>
+        <p>
         Young Talent Scholarship (IED)* <br />
         Stand Design at Milano Design Week (IED)<br />
         Speaker (Baskerville Design Festival)<br />
         Mention (Revista Gráffica)<br />
         Illustrator (Yorokobu)<br />
         Illustrator (SerifaLaris Festival)<br />
-      </p>
+        </p>
+      </div>
 
       <div class="table-container">
         <table>
