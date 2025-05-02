@@ -24,7 +24,7 @@
       }
 
       p {
-        padding: 1vh 3vh;
+        padding: 1vh 20px;
         margin: 0;
         font-size: 2vh;
       }
@@ -32,6 +32,12 @@
       .parrafos-horizontales {
         display: flex;
         justify-content: space-between;
+      }
+
+      span {
+        background: rgba(255, 221, 51, 0.7);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
       }
 
       /*----------Parte izquierda estatica----------*/
@@ -90,9 +96,20 @@
 
       /*css de los links*/
       a {
-        color: black;
         margin: 2vh 30px;
+        color: black;
+        text-decoration: none;
         font-size: small;
+        background: #508b91;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+
+      /*------------Franja-----------*/
+      .franja{
+        width: 20px;
+        background-color: #ffcc00;
+        flex-shrink: 0;
       }
 
       /*------------Parte derecha dinamica-----------*/
@@ -104,9 +121,15 @@
         font-family: Helvetica, Arial, sans-serif;
       }
 
-      .derecha p,
       .derecha h3 {
+        text-decoration: none;
         font-size: 1.8vh;
+        padding-top: 3vh;
+      }
+
+      .derecha p {
+        font-size: 1.8vh;
+        padding-bottom: 3vh;
       }
 
       /*css del contenedor general del sliderde cada proyecto*/
@@ -146,7 +169,7 @@
         pointer-events: none;
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 1000px) {
         .slide {
           flex: 0 0 100%;
         }
@@ -163,19 +186,22 @@
         }
 
         .izquierda,
-        .derecha {
+        .derecha,
+        .franja {
           width: 100%;
           min-width: 100%;
-          min-height: 100dvh; /* Ocupa al menos una pantalla */
+          min-height: 100dvh;
           overflow: visible; /* Scroll manejado por el body */
+        }
+
+        .franja{
+          min-height: 20px;
         }
       }
     </style>
   </head>
   <body>
-    <!--
-    
-    /*----------Parte izquierda estatica----------*/-->
+    <!------------Parte izquierda estatica------------>
     <div class="izquierda">
       <h1>
         Maria Mur is a young Graphic Designer currently based in Bilbao, Spain.
@@ -193,29 +219,35 @@
         <div>
           <h3>Experience</h3>
           <p>
-            Freelance graphic designer (2019-Act) <br />
-            Graphic Designer and Art Director at Suvenir Bilbau (2022-2024)
-            <br />
-            Graphic Design Intern at Happyending Studio (2024)<br />
+            <span>
+              Freelance graphic designer (2019-Act) <br />
+              Graphic Designer and Art Director at Suvenir Bilbau (2022-2024)
+              <br />
+              Graphic Design Intern at Happyending Studio (2024)
+            </span>
           </p>
         </div>
         <div>
           <h3>Education</h3>
           <p>
-            International Beccalaureate (2019-2020)<br />
-            Graphic Design Degree at IED Kunsthal (2021-2025)*<br />
+            <span>
+              International Beccalaureate (2019-2020)<br />
+              Graphic Design Degree at IED Kunsthal (2021-2025)*<br />
+            </span>
           </p>
         </div>
       </div>
       <div>
         <h3>Others</h3>
         <p>
-          Young Talent Scholarship (IED)* <br />
-          Stand Design at Milano Design Week (IED)<br />
-          Speaker (Baskerville Design Festival)<br />
-          Mention (Revista Gráffica)<br />
-          Illustrator (Yorokobu)<br />
-          Illustrator (SerifaLaris Festival)<br />
+          <span>
+            Young Talent Scholarship (IED)* <br />
+            Stand Design at Milano Design Week (IED)<br />
+            Speaker (Baskerville Design Festival)<br />
+            Mention (Revista Gráffica)<br />
+            Illustrator (Yorokobu)<br />
+            Illustrator (SerifaLaris Festival)
+          </span>
         </p>
       </div>
 
@@ -266,7 +298,10 @@
       </div>
     </div>
 
-    <!--/*------------Parte derecha dinamica-----------*/-->
+    <!------------Franja------------>
+    <div class="franja"></div>
+
+    <!--------------Parte derecha dinamica------------->
     <div class="derecha">
       <!--Chromotype-->
       <div>
@@ -316,9 +351,9 @@
         </div>
 
         <div class="parrafos-horizontales">
-          <h3>(1) Chromotype</h3>
-          <h3>2025</h3>
-          <h3>Experimental type/Editorial</h3>
+          <h3><span>(1) Chromotype</span></h3>
+          <h3><span>2025</span></h3>
+          <h3><span>Experimental type/Editorial</span></h3>
         </div>
         <p>
           Chromotype is an experimental typeface that originates from the
@@ -380,9 +415,9 @@
         </div>
 
         <div class="parrafos-horizontales">
-          <h3>(2) Mantón de baturra</h3>
-          <h3>2024</h3>
-          <h3>Illustration/New Media</h3>
+          <h3><span>(2) Mantón de baturra</span></h3>
+          <h3><span>2024</span></h3>
+          <h3><span>Illustration/New Media</span></h3>
         </div>
         <p>
           This project reimagines the traditional artisanal process of making
@@ -444,9 +479,9 @@
         </div>
 
         <div class="parrafos-horizontales">
-          <h3>(3) Suvenir</h3>
-          <h3>2023</h3>
-          <h3>Editorial/Creative direction</h3>
+          <h3><span>(3) Suvenir</span></h3>
+          <h3><span>2023</span></h3>
+          <h3><span>Editorial/Creative direction</span></h3>
         </div>
         <p>
           Suvenir is a curated cultural magazine by Julia González Saiz and
@@ -519,9 +554,9 @@
         </div>
 
         <div class="parrafos-horizontales">
-          <h3>(4) Memoria de un olvido</h3>
-          <h3>2025</h3>
-          <h3>Art direction/Editorial</h3>
+          <h3><span>(4) Memoria de un olvido</span></h3>
+          <h3><span>2025</span></h3>
+          <h3><span>Art direction/Editorial</span></h3>
         </div>
         <p>
           This project explores how two people, even when sharing the same
@@ -583,9 +618,9 @@
         </div>
 
         <div class="parrafos-horizontales">
-          <h3>Revel</h3>
-          <h3>2024</h3>
-          <h3>Art/Photography direction</h3>
+          <h3><span>Revel</span></h3>
+          <h3><span>2024</span></h3>
+          <h3><span>Art/Photography direction</span></h3>
         </div>
         <p>
           This is a fictional campaign shot for a fragrance made by the high
@@ -646,9 +681,9 @@
         </div>
 
         <div class="parrafos-horizontales">
-          <h3>Yorokobu</h3>
-          <h3>2024</h3>
-          <h3>Illustration</h3>
+          <h3><span>Yorokobu</span></h3>
+          <h3><span>2024</span></h3>
+          <h3><span>Illustration</span></h3>
         </div>
         <p>
           In collaboration between IED and Yorokobu this map illustrates my
@@ -735,9 +770,9 @@
         </div>
 
         <div class="parrafos-horizontales">
-          <h3>Terrabaixa</h3>
-          <h3>2024</h3>
-          <h3>Art/Photography direction</h3>
+          <h3><span>Terrabaixa</span></h3>
+          <h3><span>2024</span></h3>
+          <h3><span>Art/Photography direction</span></h3>
         </div>
         <p>
           Terrabaixa is a personal photography project that tries to express the
