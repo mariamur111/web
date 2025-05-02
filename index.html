@@ -15,38 +15,6 @@
         overflow: hidden;
       }
 
-      /*----------Parte izquierda estatica----------*/
-      .izquierda {
-        position: relative;
-        min-width: 500px;
-        width: 50vmax;
-        overflow: hidden; /* Sin scroll */
-        background: rgb(255, 77, 0);
-        font-family: 'Times New Roman', Times, serif;
-        z-index: 1;
-      }
-
-      .imagen-encima {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        z-index: 0;
-      }
-
-      h1 {
-        position: relative;
-        text-align: center;
-        padding: 3vh;
-        margin: 0;
-        font-size: 3.5vh;
-        font-family: Helvetica, Arial, sans-serif;
-        line-height: 20px;
-        z-index: -1;
-      }
-
       h3 {
         padding: 1vh 20px 0;
         margin: 0;
@@ -64,6 +32,44 @@
       .parrafos-horizontales {
         display: flex;
         justify-content: space-between;
+      }
+
+      /*----------Parte izquierda estatica----------*/
+      .izquierda {
+        position: relative;
+        min-width: 500px;
+        width: 50vmax;
+        overflow: hidden; /* Sin scroll */
+        background: rgb(255, 77, 0);
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      .parrafos-horizontales,
+      .izquierda > div:not(:first-child) {
+        z-index: 2;
+        position: relative;
+      }
+
+      .imagen-encima {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        pointer-events: none;
+        opacity: 0.5;
+        z-index: 1;
+      }
+
+      h1 {
+        text-align: center;
+        padding: 3vh;
+        margin: 0;
+        font-size: 3.5vh;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 20px;
+        z-index: 0;
       }
 
       .table-container {
@@ -94,8 +100,12 @@
         width: auto;
         min-width: 350px;
         overflow-y: auto; /* Con scroll vertical */
-        background: #fff;
+        background: #508b91;
         font-family: Helvetica, Arial, sans-serif;
+      }
+
+      .derecha p, .derecha h3{
+        font-size: 1.8vh;
       }
 
       /*css del contenedor general del sliderde cada proyecto*/
@@ -103,6 +113,7 @@
         display: flex;
         overflow-x: auto;
         height: 300px;
+        background-color: white;
         cursor: grab; /* Cursor que indica que se puede arrastrar */
         user-select: none; /* Evita selección de texto al arrastrar */
         will-change: transform;
