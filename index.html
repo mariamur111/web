@@ -106,7 +106,7 @@
       }
 
       /*------------Franja-----------*/
-      .franja{
+      .franja {
         width: 20px;
         background-color: #ffcc00;
         flex-shrink: 0;
@@ -165,9 +165,17 @@
       .slide img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         pointer-events: none;
       }
+
+      .slide video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* o "cover" si quieres que llene más*/
+        pointer-events: auto; /* permite interactuar con los controles*/
+      }
+
 
       @media (max-width: 1000px) {
         .slide {
@@ -194,7 +202,7 @@
           overflow: visible; /* Scroll manejado por el body */
         }
 
-        .franja{
+        .franja {
           min-height: 20px;
         }
       }
@@ -391,9 +399,10 @@
               loading="lazy"
             />
           </div>
+
           <div class="slide">
             <img
-              src="imagenes/manton/manton4.jpg"
+              src="imagenes/manton/manton6.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
@@ -401,13 +410,6 @@
           <div class="slide">
             <img
               src="imagenes/manton/manton5.jpg"
-              alt="descripcion de las fotos"
-              loading="lazy"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/manton/manton6.png"
               alt="descripcion de las fotos"
               loading="lazy"
             />
@@ -532,7 +534,7 @@
           </div>
           <div class="slide">
             <img
-              src="imagenes/memoria/6.jpg"
+              src="imagenes/memoria/10.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
@@ -575,42 +577,47 @@
         <div class="slider">
           <div class="slide">
             <img
-              src="imagenes/revel/instayo.jpg"
+              src="imagenes/revel/1frame.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
+          </div>
+          <div class="slide">
+            <video controls muted preload="metadata" loading="lazy">
+              <source src="imagenes/revel/MARIA MUR-VIDEO REVEL.mp4" type="video/mp4" />
+              Tu navegador no soporta videos HTML5.
+            </video>
+          </div>
+          <div class="slide">
+            <img
+              src="imagenes/revel/2frame.jpg"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
+          </div>
+          <div class="slide">
+            <video controls muted preload="metadata" loading="lazy">
+              <source src="imagenes/revel/VIDEO REELS.mp4" type="video/mp4" />
+              Tu navegador no soporta videos HTML5.
+            </video>
+          </div>
+          <div class="slide">
+            <img
+              src="imagenes/revel/posterss.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/revel/MARIA MUR-VIDEO REVEL.mp4"
+              src="imagenes/revel/poster2.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/manton/manton3.jpg"
-              alt="descripcion de las fotos"
-              loading="lazy"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/manton/manton4.jpg"
-              alt="descripcion de las fotos"
-              loading="lazy"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/manton/manton5.jpg"
-              alt="descripcion de las fotos"
-              loading="lazy"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/manton/manton6.png"
+              src="imagenes/revel/revista.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
@@ -645,35 +652,28 @@
           </div>
           <div class="slide">
             <img
-              src="imagenes/revel/MARIA MUR-VIDEO REVEL.mp4"
+              src="imagenes/yorokobu/2.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/manton/manton3.jpg"
+              src="imagenes/yorokobu/detalles-03.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/manton/manton4.jpg"
+              src="imagenes/yorokobu/detalles-05.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/manton/manton5.jpg"
-              alt="descripcion de las fotos"
-              loading="lazy"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/manton/manton6.png"
+              src="imagenes/yorokobu/56.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
@@ -727,14 +727,7 @@
           </div>
           <div class="slide">
             <img
-              src="imagenes/terrabaixa/5 real.jpg"
-              alt="descripcion de las fotos"
-              loading="lazy"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/terrabaixa/6 real.jpg"
+              src="imagenes/terrabaixa/5-6.jpg"
               alt="descripcion de las fotos"
               loading="lazy"
             />
