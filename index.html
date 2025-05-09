@@ -35,7 +35,7 @@
       }
 
       span {
-        background: rgba(255, 221, 51, 0.7);
+        background: #eef699;
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
       }
@@ -46,7 +46,7 @@
         min-width: 500px;
         width: 50vmax;
         overflow: hidden; /* Sin scroll */
-        background: rgb(255, 77, 0);
+        background:linear-gradient(to bottom, #ffffff, #000000);
         font-family: "Times New Roman", Times, serif;
       }
 
@@ -64,7 +64,7 @@
         height: 100%;
         object-fit: contain;
         pointer-events: none;
-        opacity: 0.4;
+        opacity:1;
         z-index: 1;
       }
 
@@ -74,7 +74,7 @@
         margin: 0;
         font-size: 3.5vh;
         font-family: Helvetica, Arial, sans-serif;
-        line-height: 20px;
+        line-height: 25px;
         z-index: 0;
       }
 
@@ -100,7 +100,7 @@
         color: black;
         text-decoration: none;
         font-size: small;
-        background: #508b91;
+        background: #eef699;
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
       }
@@ -108,7 +108,7 @@
       /*------------Franja-----------*/
       .franja {
         width: 20px;
-        background-color: #ffcc00;
+        background:linear-gradient(to bottom, #000000, #ffffff);
         flex-shrink: 0;
       }
 
@@ -117,8 +117,10 @@
         width: auto;
         min-width: 350px;
         overflow-y: auto; /* Con scroll vertical */
-        background: #508b91;
-        font-family: Helvetica, Arial, sans-serif;
+        background:#efefef;
+        font-family:'Times New Roman', Times, serif;
+        font-size:x-small;
+        font color: ;
       }
 
       .derecha h3 {
@@ -128,8 +130,10 @@
       }
 
       .derecha p {
-        font-size: 1.8vh;
+        font-family: Helvetica,Arial,sans-serif;
+        font-size: 1.4vh;
         padding-bottom: 3vh;
+        color: #000000;
       }
 
       /*css del contenedor general del sliderde cada proyecto*/
@@ -228,10 +232,9 @@
           <h3>Experience</h3>
           <p>
             <span>
-              Freelance graphic designer (2019-Act) <br />
-              Graphic Designer and Art Director at Suvenir Bilbau (2022-2024)
-              <br />
-              Graphic Design Intern at Happyending Studio (2024)
+              Graphic Design Intern at Happyending Studio (2024)<br />
+              Graphic Designer and Art Director at Suvenir Bilbau (2022-2024)<br />
+              Freelance graphic designer (Sometimes) <br />
             </span>
           </p>
         </div>
@@ -584,7 +587,10 @@
           </div>
           <div class="slide">
             <video controls muted preload="metadata" loading="lazy">
-              <source src="imagenes/revel/MARIA MUR-VIDEO REVEL.mp4" type="video/mp4" />
+              <source
+                src="imagenes/revel/MARIA MUR-VIDEO REVEL.mp4"
+                type="video/mp4"
+              />
               Tu navegador no soporta videos HTML5.
             </video>
           </div>
