@@ -1,46 +1,70 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Selecciona TODOS los sliders en la página
-    const sliders = document.querySelectorAll('.slider');
-    
-    sliders.forEach(slider => {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        
-        // Cambia el cursor al estilo "agarrar"
-        slider.style.cursor = 'grab';
-        
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.style.cursor = 'grabbing';
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-        
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-        });
-        
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-        });
-        
-        slider.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) ; // Ajusta la velocidad de arrastre
-            slider.scrollLeft = scrollLeft - walk;
-        });
-        
-        // Deshabilita el arrastre de imágenes para mejor experiencia
-        const images = slider.querySelectorAll('img');
-        images.forEach(img => {
-            img.addEventListener('dragstart', (e) => {
-                e.preventDefault();
-            });
-        });
+document.addEventListener("DOMContentLoaded", () => {
+  const sliders = document.querySelectorAll(".slider");
+
+  sliders.forEach(slider => {
+    let scrollLeft = 0;
+    let isDragging = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    // --- Scroll con rueda ---
+    window.addEventListener("wheel", e => {
+      if (!isDragging) { // solo si no estás arrastrando
+        scrollLeft += e.deltaY * 0.5; // velocidad
+        slider.scrollLeft = scrollLeft;
+
+        // loop infinito opcional
+        if (scrollLeft >= slider.scrollWidth - slider.clientWidth) scrollLeft = 0;
+        if (scrollLeft < 0) scrollLeft = slider.scrollWidth - slider.clientWidth;
+      }
     });
+
+    // --- Drag con mouse ---
+    slider.addEventListener("mousedown", e => {
+      isDragging = true;
+      startX = e.pageX - slider.offsetLeft;
+      startScroll = slider.scrollLeft;
+      slider.style.cursor = "grabbing";
+    });
+
+    slider.addEventListener("mouseup", () => {
+      isDragging = false;
+      scrollLeft = slider.scrollLeft; // actualiza scrollLeft
+      slider.style.cursor = "grab";
+    });
+
+    slider.addEventListener("mouseleave", () => {
+      isDragging = false;
+      slider.style.cursor = "grab";
+    });
+
+    slider.addEventListener("mousemove", e => {
+      if (!isDragging) return;
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5; // velocidad arrastre
+      slider.scrollLeft = startScroll - walk;
+      scrollLeft = slider.scrollLeft; // sincroniza con scrollLeft
+    });
+
+    // --- Drag con touch (móvil) ---
+    slider.addEventListener("touchstart", e => {
+      isDragging = true;
+      startX = e.touches[0].pageX - slider.offsetLeft;
+      startScroll = slider.scrollLeft;
+    });
+
+    slider.addEventListener("touchend", () => {
+      isDragging = false;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("touchmove", e => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      slider.scrollLeft = startScroll - walk;
+      scrollLeft = slider.scrollLeft;
+    });
+  });
 });
+
