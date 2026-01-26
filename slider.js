@@ -6,12 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let isDragging = false;
     let startX = 0;
     let startScroll = 0;
-    slider.isDragging = false; // para touch scroll
 
-    // --- Scroll con rueda (desktop) ---
+    // --- Scroll con rueda ---
     window.addEventListener("wheel", e => {
-      if (!slider.isDragging) { 
-        scrollLeft += e.deltaY * 0.4; // velocidad
+      if (!isDragging) { // solo si no estás arrastrando
+        scrollLeft += e.deltaY * 0.5; // velocidad
         slider.scrollLeft = scrollLeft;
 
         // loop infinito opcional
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Drag con mouse ---
     slider.addEventListener("mousedown", e => {
       isDragging = true;
-      slider.isDragging = true;
       startX = e.pageX - slider.offsetLeft;
       startScroll = slider.scrollLeft;
       slider.style.cursor = "grabbing";
@@ -31,36 +29,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     slider.addEventListener("mouseup", () => {
       isDragging = false;
-      slider.isDragging = false;
-      scrollLeft = slider.scrollLeft;
+      scrollLeft = slider.scrollLeft; // actualiza scrollLeft
       slider.style.cursor = "grab";
     });
 
     slider.addEventListener("mouseleave", () => {
       isDragging = false;
-      slider.isDragging = false;
       slider.style.cursor = "grab";
     });
 
     slider.addEventListener("mousemove", e => {
       if (!isDragging) return;
       const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 1.5;
+      const walk = (x - startX) * 1.5; // velocidad arrastre
       slider.scrollLeft = startScroll - walk;
-      scrollLeft = slider.scrollLeft;
+      scrollLeft = slider.scrollLeft; // sincroniza con scrollLeft
     });
 
     // --- Drag con touch (móvil) ---
     slider.addEventListener("touchstart", e => {
       isDragging = true;
-      slider.isDragging = true;
       startX = e.touches[0].pageX - slider.offsetLeft;
       startScroll = slider.scrollLeft;
     });
 
     slider.addEventListener("touchend", () => {
       isDragging = false;
-      slider.isDragging = false;
       scrollLeft = slider.scrollLeft;
     });
 
@@ -72,25 +66,5 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollLeft = slider.scrollLeft;
     });
   });
-
-  // --- Scroll-driven móvil (swipe vertical) ---
-  let lastTouchY = 0;
-
-  window.addEventListener("touchstart", e => {
-    lastTouchY = e.touches[0].pageY;
-  });
-
-  window.addEventListener("touchmove", e => {
-    const deltaY = e.touches[0].pageY - lastTouchY;
-    lastTouchY = e.touches[0].pageY;
-
-    sliders.forEach(slider => {
-      if (!slider.isDragging) {
-        slider.scrollLeft += deltaY * 0.4; // ajusta velocidad
-        // loop infinito
-        if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) slider.scrollLeft = 0;
-        if (slider.scrollLeft < 0) slider.scrollLeft = slider.scrollWidth - slider.clientWidth;
-      }
-    });
-  });
 });
+
