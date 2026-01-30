@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,13 +119,13 @@
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
       }
-      /* Forzar Glitch a usar cover sí o sí 
+      /* Forzar Glitch a usar cover sí o sí */
         .slider-glitch .slide img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover!important;
+        object-fit: cover !important;
         display: block;
-      } */
+      } 
 
 
       /*------------Franja-----------*/
@@ -164,11 +165,10 @@
         overflow-x: auto;
         height: 300px;
         background-color: white;
-        cursor: ew-resize; /* Cursor que indica que se puede arrastrar */
+        cursor: grab; /* Cursor que indica que se puede arrastrar */
         user-select: none; /* Evita selección de texto al arrastrar */
         will-change: transform;
         contain: strict;
-        scroll-behavior: auto;
       }
 
       .slider:active {
