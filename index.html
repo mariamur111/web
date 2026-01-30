@@ -161,14 +161,13 @@
 
       /*css del contenedor general del sliderde cada proyecto*/
       .slider {
-        display: flex;
-        overflow-x: auto;
         height: 300px;
         background-color: white;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
         cursor: grab; /* Cursor que indica que se puede arrastrar */
         user-select: none; /* Evita selección de texto al arrastrar */
-        will-change: transform;
-        contain: strict;
       }
 
       .slider:active {
@@ -182,36 +181,26 @@
 
       /*css del contenedor de cada imagen, que se mueve dentro del slider*/
       .slide {
-        flex: 0 0 50%;
-        display: flex;
-        flex-direction: column;
-        backface-visibility: hidden;
+        width: auto;
+        flex-shrink: 0;
       }
 
       /*css de las imagenes*/
       .slide img {
-        width: 100%;
         height: 100%;
-        object-fit: contain;
-        pointer-events: none;
-      }
-      /* Excepción: slider con clase especial */
-      .slider-cover .slide img {
-        object-fit: cover;
+        max-width: 100%;
+        width: auto;
       }
 
       .slide video {
-        width: 100%;
+        background-color: black;
         height: 100%;
-        object-fit: cover; /* o "cover" si quieres que llene más*/
+        width: auto;
+        max-width: 100%;
         pointer-events: auto; /* permite interactuar con los controles*/
       }
 
-      @media (max-width: 1000px) {
-        .slide {
-          flex: 0 0 100%;
-        }
-      }
+      
 
       @media screen and (max-width: 768px),
         (hover: none) and (pointer: coarse) {
