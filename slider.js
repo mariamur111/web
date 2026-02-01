@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   const sliders = document.querySelectorAll(".slider");
 
   // --- Función para animar scroll suavemente ---
@@ -98,4 +98,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(slider);
   });
-});
+});*/
