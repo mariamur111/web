@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slider.addEventListener("mouseup", () => {
       isDragging = false;
       slider.style.cursor = "grab";
-    });
+    });Ç
 
     slider.addEventListener("mouseleave", () => {
       isDragging = false;
