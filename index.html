@@ -186,23 +186,16 @@
 
       /*css del contenedor de cada imagen, que se mueve dentro del slider*/
       .slide {
-        width: auto;
-        flex-shrink: 0;
+        flex: 0 0 50%;
+        height: 100%;
       }
 
       /*css de las imagenes*/
-      .slide img {
-        height: 100%;
-        max-width: 100%;
-        width: auto;
-      }
-
+      .slide img,
       .slide video {
-        background-color: black;
+        width: 100%;
         height: 100%;
-        width: auto;
-        max-width: 100%;
-        pointer-events: auto; /* permite interactuar con los controles*/
+        object-fit: cover; /* ajusta la imagen sin deformarla */
       }
 
       @media screen and (max-width: 768px),
@@ -351,54 +344,40 @@
           <!-- Solo este, sin otro dentro -->
           <div class="slide">
             <img
-              src="imagenes/sacred mountain/webp/libro/libros 3.webp"
+              src="imagenes/sacred mountain/libro/libros 3.webp"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/sacred mountain/webp/libro/portada.webp"
+              src="imagenes/sacred mountain/libro/portada.webp"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/sacred mountain/webp/libro/pliego1.webp"
+              src="imagenes/sacred mountain/libro/pliego1.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/sacred mountain/webp/libro/pliego2.webp"
+              src="imagenes/sacred mountain/libro/pliego2.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/sacred mountain/webp/libro/pliego3.webp"
+              src="imagenes/sacred mountain/libro/pliego3.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/sacred mountain/pliego 2.jpg"
-              alt="Chromotype foto"
-              loading="lazy"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/sacred mountain/pliego 3.jpg"
-              alt="Chromotype foto"
-              loading="lazy"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/sacred mountain/pliego4.jpg"
+              src="imagenes/sacred mountain/libro/pliego4.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
@@ -428,77 +407,77 @@
         <div class="slider">
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/1 copia.webp"
+              src="imagenes/chromotype/1 copia.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/2.webp"
+              src="imagenes/chromotype/2.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/3.webp"
+              src="imagenes/chromotype/3.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/4.webp"
+              src="imagenes/chromotype/4.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/5.webp"
+              src="imagenes/chromotype/5.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/6.webp"
+              src="imagenes/chromotype/6.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/7.webp"
+              src="imagenes/chromotype/7.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/8.webp"
+              src="imagenes/chromotype/8.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/9.webp"
+              src="imagenes/chromotype/9.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/10.webp"
+              src="imagenes/chromotype/10.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/chromotype/web/11.webp"
+              src="imagenes/chromotype/11.webp"
               alt="Chromotype foto"
               loading="lazy"
             />
@@ -540,7 +519,7 @@
           </div>
           <div class="slide">
             <img
-              src="imagenes/glitch/fotos/buenas/si/ordenador copia.webp"
+              src="imagenes/glitch/ordenador copia.webp"
               alt="descripcion de las fotos"
               loading="eager"
               fetchpriority="high"
@@ -548,7 +527,7 @@
           </div>
           <div class="slide">
             <img
-              src="imagenes/glitch/fotos/buenas/si/carta copia.webp"
+              src="imagenes/glitch/carta copia.webp"
               alt="descripcion de las fotos"
               loading="lazy"
             />
@@ -556,14 +535,14 @@
 
           <div class="slide">
             <img
-              src="imagenes/glitch/fotos/buenas/cogiendo.jpg"
+              src="imagenes/glitch/cogiendo copia.webp"
               alt="descripcion de las fotos"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/glitch/fotos/buenas/digi.jpg"
+              src="imagenes/glitch/digi copia.webp"
               alt="descripcion de las fotos"
               loading="lazy"
             />
@@ -792,14 +771,14 @@
         <div class="slider">
           <div class="slide">
             <img
-              src="imagenes/gazela/creditos 1.webp"
+              src="imagenes/gazela/creditos 1.copiawebp.webp"
               alt="descripcion de las fotos"
               loading="lazy"
             />
           </div>
           <div class="slide">
             <img
-              src="imagenes/gazela/gazelagran.webp"
+              src="imagenes/gazela/gazelagran copia.webp"
               alt="descripcion de las fotos"
               loading="lazy"
             />
@@ -843,10 +822,24 @@
         <div class="slider">
           <div class="slide">
             <img
-              src="imagenes/revel/webp/foto1.webp"
+              src="imagenes/revel/imagen4.webp"
               alt="descripcion de las fotos"
               loading="eager"
               fetchpriority="high"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="imagenes/revel/imagen3.webp"
+              alt="descripcion de las fotos"
+              loading="lazy"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="imagenes/revel/imagen 1.webp"
+              alt="descripcion de las fotos"
+              loading="lazy"
             />
           </div>
           <div class="slide">
@@ -863,13 +856,6 @@
               />
               Tu navegador no soporta videos HTML5.
             </video>
-          </div>
-          <div class="slide">
-            <img
-              src="imagenes/revel/webp/foto2.webp"
-              alt="descripcion de las fotos"
-              loading="lazy"
-            />
           </div>
           <div class="slide">
             <video controls muted preload="metadata" loading="lazy">
